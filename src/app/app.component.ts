@@ -7,5 +7,10 @@ import { NgFor } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  private loadedFeature: string;
   title = 'app';
+
+  private onNavigate(feature: string) {
+    this.loadedFeature = feature;
+  }
 }
