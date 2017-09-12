@@ -9,12 +9,13 @@ import { NgFor } from '@angular/common';
 })
 
 export class RecipeListComponent implements OnInit {
-
   recipes: Recipe[] = [
-    // tslint:disable-next-line:max-line-length
     new Recipe('Test Recipe',
                'this is for test',
-               'http://maxpixel.freegreatpicture.com/static/photo/1x/Food-Kitchen-Meals-Home-Made-Dishes-Recipe-Bio-1175493.jpg')
+               'http://maxpixel.freegreatpicture.com/static/photo/1x/Food-Kitchen-Meals-Home-Made-Dishes-Recipe-Bio-1175493.jpg'),
+    new Recipe('Test Recipe',
+      'this is for test',
+      'http://maxpixel.freegreatpicture.com/static/photo/1x/Food-Kitchen-Meals-Home-Made-Dishes-Recipe-Bio-1175493.jpg')
   ];
 
   constructor() {
