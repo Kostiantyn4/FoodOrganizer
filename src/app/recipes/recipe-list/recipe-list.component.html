@@ -6,6 +6,6 @@
 <hr>
 <div class="row">
     <div class="col-xs-12" >
-        <app-recipe-item [recipesList]="recipes"></app-recipe-item>
+        <app-recipe-item (selectedRecipe) ="onClickRecipeItem($event)" [recipesList]="recipes"></app-recipe-item>
     </div>
 </div>

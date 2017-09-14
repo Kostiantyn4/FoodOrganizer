@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipes.module';
-import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-recipe-list',
@@ -9,21 +8,28 @@ import { NgFor } from '@angular/common';
 })
 
 export class RecipeListComponent implements OnInit {
+  @Output() recipeItemSelected = new EventEmitter<Recipe>();
+
   recipes: Recipe[] = [
-    new Recipe('Test Recipe',
-               'this is for test',
-               'http://maxpixel.freegreatpicture.com/static/photo/1x/Food-Kitchen-Meals-Home-Made-Dishes-Recipe-Bio-1175493.jpg'),
-    new Recipe('Test Recipe',
-      'this is for test',
-      'http://maxpixel.freegreatpicture.com/static/photo/1x/Food-Kitchen-Meals-Home-Made-Dishes-Recipe-Bio-1175493.jpg')
+    new Recipe(0
+               , 'Test Recipe'
+               , 'this is for test'
+               , 'http://maxpixel.freegreatpicture.com/static/photo/1x/Food-Kitchen-Meals-Home-Made-Dishes-Recipe-Bio-1175493.jpg'),
+    new Recipe(1
+              , 'Salmon dish'
+              , 'test recipe'
+              , 'https://static.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg')
   ];
 
   constructor() {
 
-   }
+  }
 
    ngOnInit(): void {
 
   }
 
+  onClickRecipeItem(data: Recipe) {
+    this.recipeItemSelected.emit(data);
+  }
 }
