@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Ingredient } from "../shared/ingredient.model";
+import { Ingredient } from '../shared/ingredient.model';
 
 @Component({
   selector: 'app-shopping-list',
@@ -17,4 +17,19 @@ export class ShoppingListComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  public onAddShoppingListItem($event: any) {
+    this.ingredients.push(
+      new Ingredient($event.name, $event.amount)
+    );
+  }
+
+  public onClearShoppingList() {
+    this.ingredients.length = 0;
+  }
+
+  onDeleteShoppingListItem($event: Event) {
+    const idx = this.ingredients.indexOf(this.ingredients.find(x=>x.name == $event.toString()));
+    this.ingredients.splice(idx, 1);
+  }
 }
