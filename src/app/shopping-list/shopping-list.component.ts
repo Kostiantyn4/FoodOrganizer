@@ -17,11 +17,8 @@ export class ShoppingListComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  public onAddShoppingListItem($event: any) {
-    this.ingredients.push(
-      new Ingredient($event.name, $event.amount)
-    );
+  public onAddShoppingListItem($event: Ingredient) {
+    this.ingredients.push($event);
   }
 
   public onClearShoppingList() {
@@ -29,7 +26,7 @@ export class ShoppingListComponent implements OnInit {
   }
 
   onDeleteShoppingListItem($event: Event) {
-    const idx = this.ingredients.indexOf(this.ingredients.find(x=>x.name == $event.toString()));
+    const idx = this.ingredients.indexOf(this.ingredients.find(x => x.name == $event.toString()));
     this.ingredients.splice(idx, 1);
   }
 }
